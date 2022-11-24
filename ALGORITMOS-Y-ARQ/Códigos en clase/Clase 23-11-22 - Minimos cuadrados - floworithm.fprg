@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="USUARIO"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-11-23 09:43:03 "/>
+        <attribute name="created" value="VVNVQVJJTztMQVBUT1AtS0Y1MklTNTI7MjAyMi0xMS0yMzsiMDg6NDI6NDMgIjsyNzU3"/>
+        <attribute name="edited" value="VVNVQVJJTztMQVBUT1AtS0Y1MklTNTI7MjAyMi0xMS0yMzsiMDk6NDM6MDMgIjsyOzI4NjQ="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i" type="Integer" array="False" size=""/>
+            <declare name="m, a, b, sumxy, sumx, sumy, sumxexp2" type="Real" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="X" type="Real" array="True" size="n"/>
+            <declare name="Y" type="Real" array="True" size="n"/>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <input variable="m"/>
+                <assign variable="X[i]" expression="m"/>
+                <input variable="m"/>
+                <assign variable="Y[i]" expression="m"/>
+            </for>
+            <assign variable="i" expression="0"/>
+            <output expression="&quot;Hallar a&quot;" newline="True"/>
+            <assign variable="sumxy" expression="0"/>
+            <assign variable="sumx" expression="0"/>
+            <assign variable="sumy" expression="0"/>
+            <assign variable="sumxexp2" expression="0"/>
+            <assign variable="i" expression="0"/>
+            <while expression="i&lt;n">
+                <assign variable="sumxy" expression="sumxy + (X[i] * Y[i])"/>
+                <assign variable="sumx" expression="sumx + X[i]"/>
+                <assign variable="sumy" expression="sumy + Y[i]"/>
+                <assign variable="sumxexp2" expression="sumxexp2 + (X[i] * X[i])"/>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <assign variable="a" expression="((n * sumxy) - (sumx * sumy))/((n * sumxexp2) -  (sumx * sumx))"/>
+            <assign variable="b" expression="(sumy - (a * sumx))/n"/>
+            <output expression="a" newline="True"/>
+            <output expression="b" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
