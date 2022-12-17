@@ -14,17 +14,17 @@ int main(){
     cout << "Ingrese el numero de saltos: "; cin >> n;
 
     theta = ang * M_PI/180;
-    t = (v * sin(theta))/g;
-    dt = (2*t)/n;
+    t = (-v * sin(theta) - sqrt(pow(v * sin(theta),2) + 4 * (g/2) * yo))/(-g);
+    dt = t/n;
     float X[n], Y[n], vy[n];
-
+    cout <<t;
     if (yo == 0)
     {
         for (i=0; i < n; i++)
         {
             X[i] = xo + (v * cos(theta))*i*dt;
             vy[i] = (v * sin(theta)) - (g * i*dt);
-            Y[n] = yo +  (v * sin(theta))*(i * dt) - (g * (i * dt) * (i * dt))/2;
+            Y[i] = yo +  (v * sin(theta))*(i * dt) - (g * (i * dt) * (i * dt))/2;
             cout << "x_" << i << ":\n" << X[i] << "\n";
             cout << "y_" << i << ":\n" << Y[i] << "\n";
         }
@@ -42,6 +42,7 @@ int main(){
             y = yo +  (v * sin(theta))*(i * dt) - (g * (i * dt) * (i * dt)) / 2;
             cout << "x_" << i << ": " << X[i] << "\n";
             cout << "y_" << i << ": " << Y[i] << "\n";
+            cout << "valor de y:" << y << "\n";
             i = i + 1;
         }
         
